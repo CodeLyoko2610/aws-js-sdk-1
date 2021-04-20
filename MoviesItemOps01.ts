@@ -1,7 +1,8 @@
 import { DynamoDB } from 'aws-sdk';
+import { ServiceConfigurationOptions } from 'aws-sdk/lib/service';
 
 const REGION = 'eu-west-1';
-const dbConfig = {
+const dbConfig: DynamoDB.DocumentClient.DocumentClientOptions & ServiceConfigurationOptions = {
     region: REGION,
     endpoint: `https://dynamodb.${REGION}.amazonaws.com`
 }
@@ -12,7 +13,7 @@ const table = 'Movies';
 const year = 2021;
 const title = 'Big Movie, Big Storage, Big Grumpy Bill.';
 
-const params = {
+const params: DynamoDB.DocumentClient.PutItemInput = {
     TableName: table,
     Item: {
         year,

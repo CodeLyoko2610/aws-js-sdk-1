@@ -12,7 +12,7 @@ const table = 'Movies';
 const year = 2021;
 const title = 'Big Movie, Big Storage, Big Grumpy Bill.';
 
-const params = {
+const params: DynamoDB.DocumentClient.GetItemInput = {
     TableName: table,
     Key: {
         title,
